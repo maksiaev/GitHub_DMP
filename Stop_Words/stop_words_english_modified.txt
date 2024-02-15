@@ -780,3 +780,6 @@ words
 world
 youd
 youre
+autism
+autistic
+aspergers
