@@ -783,3 +783,7 @@ youre
 autism
 autistic
 aspergers
+transgender
+transsexual
+transsexuality
+transgenderism
