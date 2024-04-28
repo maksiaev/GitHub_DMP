@@ -27,7 +27,7 @@ library(ggrepel)
 #install.packages("remotes")
 # To install the hausekeep package from github, uncomment and run the following line.
 #remotes::install_github("hauselin/hausekeep")
-library(hausekeep)
+# library(hausekeep)
 
 #Set seed so the same user will get the same results:
 set.seed(22903)
@@ -104,13 +104,15 @@ plot_sentiment <- ggplot(PrimaryModel_data, aes(x = Year, y = Score, color = Fie
   labs(y= "Sentiment Score", x= "Field")+
   theme(panel.background = element_rect(fill = "white"),
         panel.grid = element_line(color = "lightgrey"), axis.line = element_line(colour = "black"),
-        text = element_text(size=12, family ="Helvetica"), legend.position = c(.5,0.85), legend.title = element_blank()) +
+        text = element_text(size=12, family ="Helvetica"), legend.position = c(0.25,0.85), legend.title = element_blank()) +
   theme(
     axis.line = element_line(size = .5),          # Adjust axis line thickness
     axis.text = element_text(size = 10, color = "black"),         # Adjust axis label size
     axis.title = element_text(size = 12),        # Adjust axis title size
     axis.ticks = element_line(size = 1.5),       # Adjust axis tick thickness
     legend.key = element_rect()) +
+  scale_color_hue(labels = c("Abnormal", "Developmental", "Introductory", "Neuroscience", "Social", "Special Education")) +
+  
   guides(color=guide_legend(override.aes=list(fill="white"))) +
   theme(plot.margin = margin(5, 0, 5, 5)) + theme(legend.text=element_text(size=12))
 
@@ -131,7 +133,8 @@ plot_sentiment2 <- ggplot(PrimaryModel_data, aes(x = Year, y = Score, color = Fi
     axis.ticks = element_line(size = 1.5),       # Adjust axis tick thickness
   
   legend.key = element_rect()) +
-  guides(color=guide_legend(override.aes=list(fill="white"))) +
+  scale_color_hue(labels = c("Abnormal", "Developmental", "Introductory", "Neuroscience", "Social", "Special Education")) +
+  guides(color=guide_legend(override.aes=list(fill="white"), labels = c("Abnormal", "Developmental", "Introductory", "Neuroscience", "Social", "Special Education"))) +
   theme(plot.margin = margin(5, 0, 5, 5)) + theme(legend.text=element_text(size=12)) +
   facet_wrap(~Field)
 
